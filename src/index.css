@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgb(226 232 240 / 0.8);
+  }
+  .dark * {
+    border-color: rgb(51 65 85 / 0.6);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Glowing pulse for live indicators */
+@keyframes beacon {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(252, 163, 17, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 163, 17, 0); }
+}
+
+.beacon-pulse {
+  animation: beacon 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
